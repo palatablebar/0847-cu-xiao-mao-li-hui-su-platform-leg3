@@ -9,6 +9,37 @@
     {{ ui.metric("m-rejected", "阻断项") }}
   </section>
   <section class="board">
+    <article class="panel" id="panel-presale">
+      <div class="panel-head">
+        <h2>续卖凭据工作台</h2>
+        <span class="hint" id="presale-status">输入报价区间后试算</span>
+      </div>
+      <div class="presale-grid">
+        <label>商品 SKU<input id="ps-sku" name="sku" value="PS-001" autocomplete="off"></label>
+        <label>促销售价（分）<input id="ps-sell" name="sell_price_cents" type="number" value="1000" min="0"></label>
+        <label>进货报价下限（分）<input id="ps-low" name="quote_low_cents" type="number" value="600" min="0"></label>
+        <label>进货报价上限（分）<input id="ps-high" name="quote_high_cents" type="number" value="700" min="0"></label>
+        <label>单位毛利底线（分，可选）<input id="ps-floor" name="unit_margin_floor_cents" type="number" value="250" min="0"></label>
+        <div class="presale-actions">
+          <button id="ps-evaluate" type="button">采信报价并试算续卖</button>
+          <button id="ps-rerun" type="button">重跑同一报价</button>
+          <button id="ps-query" type="button">查询能否续卖</button>
+        </div>
+        <label>实际进货价（分）<input id="ps-actual" name="actual_cost_cents" type="number" placeholder="实价出来后填写"></label>
+        <div class="presale-actions">
+          <button id="ps-actual-submit" type="button">登记实价并判定</button>
+        </div>
+        <label>出货数量<input id="ps-qty" name="line_qty" type="number" value="1" min="1"></label>
+        <label>出货单位成本（分）<input id="ps-ship-cost" name="unit_cost_cents" type="number" value="700" min="0"></label>
+        <div class="presale-actions">
+          <button id="ps-ship" type="button">记录已出货毛利</button>
+        </div>
+      </div>
+      <div class="presale-answer" id="ps-answer" aria-live="polite">尚未查询</div>
+      <pre class="presale-result" id="ps-result" hidden></pre>
+    </article>
+  </section>
+  <section class="board">
     <article class="panel" id="panel-table">
       <div class="panel-head"><h2>批次结果</h2><span class="hint" id="row-count">--</span></div>
       <div class="table-wrap">
@@ -41,4 +72,5 @@
     </article>
   </section>
 </main>
+<script src="{{ url_for('static', filename='presale.js') }}"></script>
 {% endblock %}

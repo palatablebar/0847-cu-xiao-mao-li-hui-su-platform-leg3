@@ -18,6 +18,11 @@ MESSAGES = {
     "GATE_BLOCKED": "存在阻断项，不能签发",
     "NOT_APPROVED": "批次尚未签发",
     "BAD_REQUEST": "请求内容不完整",
+    "SKU_REQUIRED": "商品编码不能为空",
+    "QUOTE_RANGE_REQUIRED": "需要提供进货报价区间",
+    "QUOTE_NOT_FOUND": "商品还没有可重跑的已采信报价",
+    "ACTUAL_PRICE_REQUIRED": "需要提供实际进货价",
+    "QUOTE_RANGE_INVALID": "进货报价区间不合法",
 }
 
 
